@@ -1044,3 +1044,18 @@ d.13C.refed.hpAA.SCFA <- d.13C.refed %>% rbind(d.dataForMFA.hpAAs) %>% rbind(d.d
 save(d.13C.refed.hpAA.SCFA, file = "../data/cleaned_labeling_data_hpAA-SCFA.RData") 
 
 
+
+# combine Tony data - TAGkinetics - hpAA - SCFA data
+load("data_section_hpAAs.RData")        ; d.dataForMFA.hpAAs
+load("data_section_SCFA.RData")         ; d.dataForMFA.SCFA
+load("data_section_TAGkinetics.RData")  ; d.dataForMFA.TAGkinetics
+
+d.13C.refed_TAGkinetics.hpAA.SCFA <- d.13C.refed %>% 
+  rbind(d.dataForMFA.TAGkinetics) %>%  
+  rbind(d.dataForMFA.hpAAs) %>% 
+  rbind(d.dataForMFA.SCFA)
+
+save(d.13C.refed_TAGkinetics.hpAA.SCFA, file = "../data/cleaned_labeling_data_TAGkinetics_hpAA-SCFA.RData") 
+
+
+
